@@ -1,6 +1,8 @@
 package com.aldous_roy;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import java.util.List;
 
 @Service
@@ -14,6 +16,10 @@ public class SoftwareEngineerService {
 
     public List<SoftwareEngineer> getSoftwareEngineer() {
         return softwareEngineerRepository.findAll();
+    }
+    public SoftwareEngineer getSoftwareEngineerById(Integer id) {
+        return softwareEngineerRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Software Engineer not found with id: " + id));
     }
 
     public SoftwareEngineer addSoftwareEngineer(SoftwareEngineer engineer) {
