@@ -28,4 +28,9 @@ public class SoftwareEngineerService {
         }
         return softwareEngineerRepository.save(engineer);
     }
+    public SoftwareEngineer deleteSoftwareEngineer(Integer id) {
+        SoftwareEngineer engineer = getSoftwareEngineerById(id);
+        softwareEngineerRepository.delete(engineer);
+        return engineer;
+    }
 }
