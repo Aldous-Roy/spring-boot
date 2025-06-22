@@ -15,4 +15,11 @@ public class SoftwareEngineerService {
     public List<SoftwareEngineer> getSoftwareEngineer() {
         return softwareEngineerRepository.findAll();
     }
+
+    public SoftwareEngineer addSoftwareEngineer(SoftwareEngineer engineer) {
+        if(engineer.getName() == null || engineer.getTechStack() == null) {
+            throw new IllegalArgumentException("Name and Tech Stack cannot be null");
+        }
+        return softwareEngineerRepository.save(engineer);
+    }
 }
